@@ -1,4 +1,8 @@
 #!/bin/zsh
 rm bits
+rm out1.txt
+
+ls -laG
+
 clang++ hexDecode.cpp -o bits -g
-./bits in1.txt out1.txt
+./bits ./testFiles/in1.txt ./testFiles/out1.txt
