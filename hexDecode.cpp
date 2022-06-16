@@ -65,16 +65,17 @@ int main(int argc, char **argv) {
     long dec;
     std::string::size_type end;
 
+    out << "      original hex val             |         bits 14-41" << std::endl;
     while (std::getline(in, line)) {
         hexString = line.substr(5, 10);  // Substrings into string consisting of nibbles 3-10
         dec = std::stol(hexString, &end, 16);
         bin = decToBinary(dec);
-        out << bin << std::endl;
+        //out << bin << std::endl;
         std::string finalBits = bin.substr(9, 28);
-        out << "DB: " << finalBits << std::endl;
-        //bin.erase(30, 2);
-        //bin.erase(0, 2);
-        out << line << " | " <<  "0x" << hexString << " | " << "0b" << finalBits << std::endl;
+        out << "-----------------------------------|-------------------------------" << std::endl;
+        out << line << " | " << "0b" << finalBits << std::endl;
+        //out << "DB: " << finalBits << std::endl;
+        //out << line << " | " <<  "0x" << hexString << " | " << "0b" << finalBits << std::endl;
     }
 
 
