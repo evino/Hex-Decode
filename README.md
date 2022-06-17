@@ -11,10 +11,15 @@ wget https://github.com/evin0/hexDecoder/blob/main/hexDecode.cpp
 Compilation:
 Has been tested using clang++.
 ```
-clang++ hexDecoder.cpp -o decode
+clang++ hexDecode.cpp -o decoder
 ```
 
 Running:
 ```
-./decode <inFile> <outFile>
+./decoder <inFile> <outFile>
+```
+
+Cleaning workspace:
+```
+rm decoder
 ```
