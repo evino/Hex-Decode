@@ -1,13 +1,13 @@
-// remove whats not neccesary
+// Takes in input file via command line, containing hex values and outputs
+// bits 14-41 of the value into an output file.
+
+// Incase you're wondering why I have such a random program,
+// it was for a very specific debug :)
 
 #include <iostream>
 #include <fstream>
-#include <string>
-#include <cstdint>
 
-//using namespace std;
-
-
+// Reverses binary string
 void reversal(std::string &str) {
     int strLen = str.length() - 1;
     for (int i = 0; i <= strLen; i++) {
@@ -17,7 +17,7 @@ void reversal(std::string &str) {
     return;
 }
 
-
+// Converts long integer in base 1o to binary
 std::string decToBinary(long dec) {
     std::string bits;
     while (dec) {
@@ -66,20 +66,21 @@ int main(int argc, char **argv) {
     std::string::size_type end;
 
     out << "      original hex val             |         bits 14-41" << std::endl;
+    
     while (std::getline(in, line)) {
-        hexString = line.substr(5, 10);  // Substrings into string consisting of nibbles 3-10
+        hexString = line.substr(5, 10);  // Substrings into string consisting of nibbles 5-15 from original hex string
         dec = std::stol(hexString, &end, 16);
         bin = decToBinary(dec);
-        //out << bin << std::endl;
-        std::string finalBits = bin.substr(9, 28);
+        std::string finalBits = bin.substr(9, 28);  // breaks down binary string into substring that only contains
+                                                    // bits 14-41.
+
+
         out << "-----------------------------------|-------------------------------" << std::endl;
         out << line << " | " << "0b" << finalBits << std::endl;
-        //out << "DB: " << finalBits << std::endl;
-        //out << line << " | " <<  "0x" << hexString << " | " << "0b" << finalBits << std::endl;
     }
 
 
     in.close();
     out.close();
     return EXIT_SUCCESS;
-    }
+}
