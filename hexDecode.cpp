@@ -63,19 +63,18 @@ int main(int argc, char **argv) {
     std::string hexString; // Nibbles 0-15
     std::string bin;
     long dec;
-    std::string::size_type end;
+    //char *end;
+    //std::string end = ",\t\n ";
 
-    out << "      original hex val             |         bits 14-41" << std::endl;
+    out << "      original hex val                      bits 14-41" << std::endl;
     
     while (std::getline(in, line)) {
         hexString = line.substr(5, 10);  // Substrings into string consisting of nibbles 5-15 from original hex string
-        dec = std::stol(hexString, &end, 16);
+        dec = std::stol(hexString, NULL, 16);
         bin = decToBinary(dec);
         std::string finalBits = bin.substr(9, 28);  // breaks down binary string into substring that only contains
                                                     // bits 14-41.
 
-
-        out << "-----------------------------------|-------------------------------" << std::endl;
         out << line << " | " << "0b" << finalBits << std::endl;
     }
 
