@@ -15,10 +15,8 @@ clang++ hexDecode.cpp -o decoder
 ```
 
 Running:
-```
 1. Enter `make` to generate hexDecoder executable.
 2. ./hexDecoder <inFile> <outFile>
-```
 
 Cleaning workspace:
 ```
