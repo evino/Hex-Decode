@@ -19,6 +19,4 @@ Running:
 2. ./hexDecoder <inFile> <outFile>
 
 Cleaning workspace:
-```
-rm decoder
-```
+Enter `make clean` to remove object file and executable.
